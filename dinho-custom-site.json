@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "documento": "Briefing técnico e estratégico para desenvolvimento de website",
+    "fonte_dados": "Perfil público do Instagram @dinhocustom",
+    "url_fonte": "https://www.instagram.com/dinhocustom/",
+    "data_analise": "2026-08-11",
+    "posts_analisados": 38,
+    "observacao": "Dados extraídos de conteúdo público. Itens marcados como 'confirmar_com_cliente' não estão publicados no perfil."
+  },
+
+  "negocio": {
+    "nome_fantasia": "Dinho Custom",
+    "handle_instagram": "@dinhocustom",
+    "nome_exibicao_instagram": "Dinho Custom | PPF | Películas | Automotivo | Arquitetura",
+    "categoria_instagram": "Produto/serviço",
+    "posicionamento_declarado": "Novo padrão de excelência em películas",
+    "segmento": "Películas automotivas, PPF (Paint Protection Film), envelopamento e películas arquitetônicas",
+    "responsavel_tecnico": {
+      "apelido_marca": "Dinho",
+      "nome_provavel": "Lucas Nunes Teixeira",
+      "perfil_pessoal": "@lukasteixeir",
+      "observacao": "Nome identificado em certificados expostos na loja; confirmar grafia oficial"
+    },
+    "marca_pessoal": {
+      "forte": true,
+      "evidencia": "Responsável aparece executando os serviços na maioria dos vídeos; posts motivacionais com alto engajamento"
+    },
+    "tempo_de_mercado": "confirmar_com_cliente (posts desde 2022; espaço atual inaugurado em dezembro de 2023)",
+    "razao_social": "confirmar_com_cliente",
+    "cnpj": "confirmar_com_cliente"
+  },
+
+  "contato_e_localizacao": {
+    "whatsapp": {
+      "numero_formatado": "(37) 99912-7964",
+      "numero_internacional": "5537999127964",
+      "link_bio": "https://api.whatsapp.com/send?phone=5537999127964&text=ol%C3%A1",
+      "canal_principal": true
+    },
+    "telefone_fixo": "confirmar_com_cliente",
+    "email": "confirmar_com_cliente",
+    "endereco": {
+      "logradouro": "Rua Marechal Deodoro, 84",
+      "bairro": "Centro",
+      "cidade": "Formiga",
+      "estado": "MG",
+      "pais": "Brasil",
+      "cep": "confirmar_com_cliente",
+      "fonte": "Post de inauguração do novo espaço (dez/2023)"
+    },
+    "horario_funcionamento": "confirmar_com_cliente",
+    "atende_por_agendamento": "confirmar_com_cliente",
+    "site_atual": null,
+    "outras_redes": {
+      "facebook": "confirmar_com_cliente",
+      "youtube": "confirmar_com_cliente",
+      "tiktok": "confirmar_com_cliente",
+      "google_meu_negocio": "não evidenciado — criar/otimizar"
+    },
+    "regiao_de_atendimento_sugerida": [
+      "Formiga",
+      "Divinópolis",
+      "Arcos",
+      "Pains",
+      "Córrego Fundo",
+      "Lagoa da Prata",
+      "Pimenta",
+      "Candeias",
+      "Belo Horizonte (eventual, há posts na capital)"
+    ]
+  },
+
+  "metricas_instagram": {
+    "publicacoes": 38,
+    "seguidores": 639,
+    "seguindo": 55,
+    "destaques_stories": 0,
+    "engajamento_medio_curtidas": "10 a 40",
+    "picos_engajamento": [
+      { "tipo": "reel", "tema": "Película 5% em ZR-V 0km", "curtidas": 98 },
+      { "tipo": "reel", "tema": "PPF Honda", "curtidas": 78 },
+      { "tipo": "post", "tema": "Inauguração do novo espaço", "curtidas": 60 },
+      { "tipo": "post", "tema": "Full PPF Ferrari 458", "curtidas": 47 },
+      { "tipo": "post", "tema": "Full PPF Fiat Toro Ranch 0km", "curtidas": 44 }
+    ],
+    "perfil_de_comentarios": "Rede próxima e parceiros do setor; elogios recorrentes a acabamento, profissionalismo e excelência",
+    "prova_social": {
+      "existe_organicamente": true,
+      "estruturada_em_depoimentos": false
+    },
+    "frequencia_postagem": "Irregular, com concentração em 2022 e retomada forte entre 2024 e 2026"
+  },
+
+  "servicos": [
+    {
+      "id": "ppf",
+      "nome": "PPF — Película de Proteção de Pintura",
+      "prioridade_site": 1,
+      "ticket": "alto",
+      "modalidades": [
+        { "nome": "Full PPF", "descricao": "Veículo completo" },
+        { "nome": "PPF Áreas Críticas", "descricao": "Parachoque, capô, retrovisores, colunas e pontos de maior impacto" }
+      ],
+      "beneficios_comunicados": ["Proteção contra riscos e impactos", "Brilho", "Filme regenerativo (auto-regeneração de micro-riscos)"],
+      "cases_no_perfil": [
+        "Ferrari 458 — Full PPF",
+        "Honda HR-V — Full PPF",
+        "Fiat Toro Ranch 0km — Full PPF",
+        "KTM 2026 0km — PPF completo",
+        "Honda CBR Fireblade e África Twin — PPF áreas críticas",
+        "Honda (reel institucional de PPF)"
+      ],
+      "garantia": "confirmar_com_cliente",
+      "aplicavel_a": ["carros", "motos"]
+    },
+    {
+      "id": "peliculas_automotivas",
+      "nome": "Películas Automotivas de Controle Solar",
+      "prioridade_site": 2,
+      "ticket": "médio",
+      "linhas_e_marcas": {
+        "marca_principal": "Nexus Window Film",
+        "linhas": [
+          {
+            "nome": "NX Ceramic",
+            "atributos": ["Alta rejeição de calor", "Não bloqueia sinais eletrônicos", "UVR 99%", "Conforto térmico e conectividade"],
+            "vlt_disponivel": ["5%", "20%", "30%"],
+            "garantia": "5 anos"
+          },
+          {
+            "nome": "NX Carbono",
+            "atributos": ["Alta proteção UV", "Conforto térmico", "Acabamento premium"],
+            "garantia": "confirmar_com_cliente"
+          }
+        ],
+        "outras_referencias_em_posts": ["Film profissional 5%", "Película G20 com retenção de calor", "Película de proteção solar com 3 anos de garantia"]
+      },
+      "servicos_correlatos": ["Película fumê em faróis e lanternas", "Aplicação em para-brisa para conforto térmico", "Laterais e traseiro"],
+      "cases_no_perfil": [
+        "Audi A4 Prestige — película 5% e 20% + para-brisa",
+        "Honda ZR-V 0km — film profissional 5%",
+        "Toyota SW4 0km — proteção solar, 3 anos de garantia",
+        "VW Nivus 2024 — película G20",
+        "Honda HR-V — film profissional 5%",
+        "Fiat Toro Ranch — film 5% laterais e traseiro"
+      ],
+      "aplicavel_a": ["carros", "SUVs", "picapes"]
+    },
+    {
+      "id": "envelopamento",
+      "nome": "Envelopamento Premium Automotivo",
+      "prioridade_site": 3,
+      "ticket": "baixo a médio",
+      "itens_executados": [
+        "Grade frontal em black piano",
+        "Retrovisores em black piano",
+        "Protetor de escape de moto em preto fosco",
+        "Faixas originais de motos esportivas",
+        "Frente completa em black + pintura de grades + polimento de faróis"
+      ],
+      "materiais_citados": ["ALLTAK", "Black piano", "Preto fosco"],
+      "cases_no_perfil": [
+        "Audi A4 Prestige — grade frontal black piano",
+        "Kawasaki ZX-6R 2021 — faixas originais",
+        "VW Golf TSI — retrovisores",
+        "VW Saveiro Cross — retrovisores",
+        "Ford Focus — retrovisores",
+        "Honda Civic — grade frontal",
+        "Fiat Punto — frente black e polimento de faróis",
+        "Honda XRE 300 — protetor de escape"
+      ],
+      "aplicavel_a": ["carros", "motos"]
+    },
+    {
+      "id": "arquitetonico",
+      "nome": "Películas e Envelopamento Arquitetônico / Residencial",
+      "prioridade_site": 4,
+      "ticket": "variável",
+      "subaproveitado": true,
+      "itens_executados": [
+        "Película jateada em portas de vidro",
+        "Película de proteção solar residencial",
+        "Envelopamento de armários planejados em preto fosco",
+        "Envelopamento personalizado de geladeira",
+        "Envelopamento de mesa de jantar",
+        "Envelopamento e film em residências"
+      ],
+      "publico_distinto": ["Arquitetos", "Designers de interiores", "Condomínios", "Comércios e escritórios", "Proprietários residenciais"],
+      "observacao": "Conteúdo concentrado em 2022; precisa de fotos novas para sustentar a página"
+    }
+  ],
+
+  "diferenciais_competitivos": [
+    {
+      "titulo": "Corte computadorizado (plotter Tech-Cut)",
+      "argumento": "Precisão milimétrica, acabamento perfeito e ausência de corte com lâmina sobre o veículo",
+      "peso": "principal ativo técnico"
+    },
+    {
+      "titulo": "Certificações e capacitação contínua",
+      "argumento": "Certificados de cursos expostos na loja; posts sobre busca constante de conhecimento",
+      "peso": "autoridade"
+    },
+    {
+      "titulo": "Garantias de fábrica",
+      "argumento": "Até 5 anos na linha cerâmica e 3 anos em proteção solar",
+      "peso": "redução de risco percebido"
+    },
+    {
+      "titulo": "Marcas homologadas",
+      "argumento": "Nexus Window Film (NX Carbono e NX Ceramic), ALLTAK",
+      "peso": "credibilidade de material"
+    },
+    {
+      "titulo": "Portfólio com veículos de alto valor",
+      "argumento": "Ferrari 458, Audi A4, KTM 2026, SUVs e picapes 0km",
+      "peso": "prova de capacidade"
+    },
+    {
+      "titulo": "Nicho de motos consolidado",
+      "argumento": "PPF e envelopamento em esportivas e trail — pouca concorrência local",
+      "peso": "oportunidade de mercado"
+    },
+    {
+      "titulo": "Estrutura física própria e visualmente forte",
+      "argumento": "Box com iluminação hexagonal LED, piso modular, ambiente controlado",
+      "peso": "confiança e conteúdo visual"
+    }
+  ],
+
+  "parceiros_e_ecossistema": {
+    "fornecedores_marcas": ["Nexus Window Film (@nexuswindowfilm)", "ALLTAK", "Tech-Cut (@tech_cut)"],
+    "referencias_do_setor": ["Vetrofilm — Belo Horizonte (@vetrofilm)", "JS Garage (@jsgarage99)"],
+    "producao_de_conteudo": ["@hygordaniel.films", "@creativelab.agencia"],
+    "mencoes_de_pares": ["@cartop_estetica", "@zapluscardivinopolismg", "@autotratolavajato_"]
+  },
+
+  "identidade_visual": {
+    "logo": {
+      "tipo": "Wordmark",
+      "texto": "//DINHO CUSTOM",
+      "elemento_grafico": "Barras duplas inclinadas (//)",
+      "assinatura_secundaria": "Envelopamento e Insulfilm / Envelopamento e film residencial",
+      "tipografia": "Condensada, maiúsculas, industrial",
+      "arquivo_vetorial": "solicitar_ao_cliente (SVG/AI/EPS)"
+    },
+    "paleta_observada": ["Preto e grafite dominantes", "Branco", "Vermelho de destaque", "Azul na fachada (possível legado)"],
+    "paleta_recomendada": {
+      "fundo_primario": "#0B0B0D",
+      "superficie": "#16181D",
+      "superficie_elevada": "#22252B",
+      "texto_primario": "#FFFFFF",
+      "texto_secundario": "#A5ABB5",
+      "acento_acao": "#E1121C",
+      "acento_hover": "#B50E16",
+      "metalico": "#9AA3AE",
+      "sucesso_whatsapp": "#25D366"
+    },
+    "tipografia_recomendada": {
+      "titulos": ["Barlow Condensed", "Archivo", "Anton"],
+      "corpo": ["Inter", "Manrope"]
+    },
+    "elementos_de_design": [
+      "Barras '//' como divisor de seções e marcador de listas",
+      "Padrão hexagonal sutil inspirado na iluminação da oficina",
+      "Textura de fibra de carbono em áreas pontuais",
+      "Grid tipo pit-stop (preto/vermelho) em faixas de destaque"
+    ],
+    "mood": "Box de corrida / performance / tecnologia — escuro, contrastado, cinematográfico"
+  },
+
+  "publico_alvo": [
+    {
+      "persona": "Proprietário de carro 0km ou seminovo de médio/alto padrão",
+      "faixa": "28 a 55 anos",
+      "localizacao": "Formiga e região metropolitana do Centro-Oeste de MG",
+      "dores": ["Calor no interior do veículo", "Medo de riscos e desvalorização", "Falta de privacidade", "Desconfiança quanto a acabamento amador"],
+      "gatilhos": ["Garantia", "Corte computadorizado", "Portfólio com carros premium", "Valorização na revenda"],
+      "servicos_alvo": ["ppf", "peliculas_automotivas", "envelopamento"]
+    },
+    {
+      "persona": "Motociclista de esportiva ou trail",
+      "faixa": "25 a 45 anos",
+      "dores": ["Riscos em tanque e carenagem", "Perda de valor de revenda", "Desejo de personalização sem pintura"],
+      "gatilhos": ["PPF em áreas críticas", "Faixas originais", "Cases de KTM, Kawasaki, Honda"],
+      "servicos_alvo": ["ppf", "envelopamento"]
+    },
+    {
+      "persona": "Decisor residencial / arquiteto / comércio",
+      "faixa": "30 a 60 anos",
+      "dores": ["Calor e ofuscamento em ambientes envidraçados", "Falta de privacidade", "Móveis desatualizados sem verba para troca"],
+      "gatilhos": ["Redução de calor", "Película jateada para privacidade", "Renovação de móveis sem obra"],
+      "servicos_alvo": ["arquitetonico"]
+    }
+  ],
+
+  "tom_de_voz": {
+    "atual": "Direto, técnico, orgulhoso; uso intenso de checkmarks e emojis; ênfase em garantia, proteção e valorização",
+    "palavras_recorrentes": ["proteção", "excelência", "premium", "profissional", "garantia", "acabamento", "precisão", "conforto térmico"],
+    "recomendacao_site": "Manter a energia e a confiança, mas traduzir o jargão técnico. O cliente final não sabe o que é VLT 5% nem a diferença entre PPF e vitrificação — explicar isso é a maior alavanca de conversão.",
+    "evitar": ["Excesso de emojis no site", "Termos técnicos sem explicação", "Promessas sem número de garantia"]
+  },
+
+  "lacunas_identificadas": [
+    { "lacuna": "Ausência de site institucional", "impacto": "alto" },
+    { "lacuna": "Nenhum destaque de stories organizado por serviço", "impacto": "médio" },
+    { "lacuna": "Horário de funcionamento não publicado", "impacto": "alto" },
+    { "lacuna": "Sem e-mail comercial ou formulário", "impacto": "médio" },
+    { "lacuna": "Sem faixa de preços ou 'a partir de'", "impacto": "alto" },
+    { "lacuna": "Garantias citadas de forma inconsistente (3 e 5 anos sem padronização)", "impacto": "alto" },
+    { "lacuna": "Depoimentos sem nome, cidade e veículo", "impacto": "alto" },
+    { "lacuna": "Antes/depois não organizado por serviço", "impacto": "alto" },
+    { "lacuna": "Dependência total do WhatsApp, sem captação de e-mail", "impacto": "médio" },
+    { "lacuna": "Google Meu Negócio não evidenciado", "impacto": "muito alto (maior ganho rápido)" },
+    { "lacuna": "Zero conteúdo educativo/indexável", "impacto": "alto" },
+    { "lacuna": "Linha arquitetônica sem conteúdo recente", "impacto": "médio" },
+    { "lacuna": "Frequência de postagem irregular", "impacto": "médio" }
+  ],
+
+  "arquitetura_do_site": {
+    "sitemap": [
+      { "pagina": "Home", "slug": "/", "prioridade": 1 },
+      { "pagina": "PPF — Proteção de Pintura", "slug": "/ppf", "prioridade": 1 },
+      { "pagina": "Películas Automotivas", "slug": "/peliculas-automotivas", "prioridade": 1 },
+      { "pagina": "Envelopamento", "slug": "/envelopamento", "prioridade": 2 },
+      { "pagina": "Películas Arquitetônicas e Residenciais", "slug": "/peliculas-residenciais", "prioridade": 2 },
+      { "pagina": "Portfólio", "slug": "/portfolio", "prioridade": 1 },
+      { "pagina": "Sobre a Dinho Custom", "slug": "/sobre", "prioridade": 2 },
+      { "pagina": "Blog", "slug": "/blog", "prioridade": 3 },
+      { "pagina": "Contato e Orçamento", "slug": "/contato", "prioridade": 1 },
+      { "pagina": "PPF em Formiga MG", "slug": "/ppf-formiga-mg", "prioridade": 3, "tipo": "landing SEO local" },
+      { "pagina": "Insulfilm em Formiga MG", "slug": "/insulfilm-formiga-mg", "prioridade": 3, "tipo": "landing SEO local" },
+      { "pagina": "Política de Privacidade", "slug": "/politica-de-privacidade", "prioridade": 4 },
+      { "pagina": "Política de Garantia", "slug": "/garantia", "prioridade": 3 }
+    ],
+    "estrutura_home": [
+      { "ordem": 1, "secao": "Herói", "conteudo": "Vídeo em loop da oficina (iluminação hexagonal) + headline de proteção premium + CTA duplo: 'Orçamento no WhatsApp' e 'Ver portfólio'" },
+      { "ordem": 2, "secao": "Barra de credibilidade", "conteudo": "Corte computadorizado · Instaladores certificados · Garantia de até 5 anos · Nexus Window Film" },
+      { "ordem": 3, "secao": "Serviços", "conteudo": "4 cards: PPF, Películas, Envelopamento, Arquitetônico" },
+      { "ordem": 4, "secao": "Por que a Dinho Custom", "conteudo": "Diferenciais em 3 a 6 blocos com ícones" },
+      { "ordem": 5, "secao": "Antes e depois", "conteudo": "Slider comparativo com 4 a 6 cases" },
+      { "ordem": 6, "secao": "Portfólio destaque", "conteudo": "Grid com Ferrari 458, KTM 2026, Audi A4, Toro Ranch" },
+      { "ordem": 7, "secao": "Depoimentos", "conteudo": "3 a 5 depoimentos com nome, cidade e veículo" },
+      { "ordem": 8, "secao": "Processo de atendimento", "conteudo": "Contato → diagnóstico → orçamento → agendamento → aplicação → entrega e pós-venda" },
+      { "ordem": 9, "secao": "FAQ", "conteudo": "6 a 10 perguntas com Schema FAQPage" },
+      { "ordem": 10, "secao": "Localização", "conteudo": "Mapa, endereço, horário e botão de rota" },
+      { "ordem": 11, "secao": "CTA final", "conteudo": "Formulário de orçamento + botão flutuante de WhatsApp persistente" }
+    ],
+    "template_pagina_de_servico": [
+      "Herói com imagem do serviço e CTA",
+      "O que é (linguagem simples)",
+      "Benefícios reais",
+      "Para quem é indicado",
+      "O que está incluído no serviço",
+      "Tabela de linhas, percentuais (VLT) e garantias",
+      "Galeria específica do serviço",
+      "Antes e depois",
+      "FAQ do serviço",
+      "Formulário de orçamento contextualizado"
+    ]
+  },
+
+  "funcionalidades": {
+    "essenciais": [
+      "Botão flutuante de WhatsApp com mensagem pré-preenchida diferente por página (rastreio de origem do lead)",
+      "Formulário de orçamento com campos: nome, WhatsApp, cidade, tipo de veículo, marca/modelo, ano, serviço desejado, upload opcional de foto",
+      "Galeria antes/depois com slider comparativo",
+      "Portfólio filtrável por serviço e por tipo (carro / moto / residencial)",
+      "Player de vídeos verticais reaproveitando os reels",
+      "Google Maps incorporado com botão 'Traçar rota'",
+      "Feed do Instagram integrado",
+      "FAQ com accordion",
+      "Página de garantia com condições por serviço"
+    ],
+    "desejaveis": [
+      "Simulador de orçamento por porte de veículo (hatch, sedan, SUV, picape, moto)",
+      "Agendamento online com seleção de data e horário",
+      "Área de blog para SEO",
+      "Captura de e-mail com isca (guia de cuidados pós-aplicação em PDF)",
+      "Comparador interativo de percentuais de película (simulação visual de VLT)",
+      "Versão em cards de 'cases completos' com ficha técnica",
+      "Selo de avaliações do Google em tempo real"
+    ],
+    "nao_recomendado_no_lancamento": [
+      "E-commerce / checkout (serviço exige diagnóstico presencial)",
+      "Chatbot genérico (WhatsApp já cumpre o papel com mais conversão)"
+    ]
+  },
+
+  "especificacao_tecnica": {
+    "stack_sugerida_opcao_a": {
+      "framework": "Next.js (App Router)",
+      "estilo": "Tailwind CSS",
+      "cms": "Sanity ou Payload CMS (para portfólio e blog)",
+      "hospedagem": "Vercel",
+      "indicado_para": "Melhor performance e controle total"
+    },
+    "stack_sugerida_opcao_b": {
+      "framework": "WordPress com tema leve (GeneratePress ou Blocksy)",
+      "builder": "Bricks ou Elementor otimizado",
+      "hospedagem": "Hostinger/Kinsta com CDN",
+      "indicado_para": "Cliente que quer autonomia total de edição"
+    },
+    "performance": {
+      "prioridade": "mobile-first — maioria absoluta do tráfego virá de celular via Instagram e Google",
+      "requisitos": [
+        "Imagens em WebP/AVIF com lazy loading",
+        "LCP abaixo de 2,5s",
+        "CLS abaixo de 0,1",
+        "Vídeos com poster e carregamento sob demanda",
+        "Fontes autohospedadas com font-display swap",
+        "CDN e cache agressivo"
+      ]
+    },
+    "seo_tecnico": [
+      "Schema.org LocalBusiness / AutoRepair com endereço, telefone, geo e openingHours",
+      "Schema Service para cada página de serviço",
+      "Schema FAQPage no bloco de perguntas",
+      "Schema ImageObject no portfólio",
+      "Sitemap.xml e robots.txt",
+      "Open Graph e Twitter Cards para compartilhamento no WhatsApp",
+      "URLs limpas e canônicas",
+      "Alt text descritivo com serviço + modelo + cidade"
+    ],
+    "analytics_e_tracking": [
+      "Google Analytics 4",
+      "Google Search Console",
+      "Meta Pixel (para futuro remarketing)",
+      "Eventos personalizados: clique_whatsapp, envio_formulario, clique_telefone, clique_rota, visualizacao_portfolio"
+    ],
+    "acessibilidade": [
+      "Contraste mínimo AA sobre fundo escuro",
+      "Navegação por teclado",
+      "Alt em todas as imagens",
+      "Labels em todos os campos de formulário"
+    ],
+    "legal_lgpd": [
+      "Banner de consentimento de cookies",
+      "Política de privacidade",
+      "Aviso de uso de imagem de veículos de clientes",
+      "Checkbox de consentimento no formulário"
+    ]
+  },
+
+  "seo": {
+    "palavras_chave_primarias": [
+      "PPF Formiga MG",
+      "insulfilm Formiga",
+      "película automotiva Formiga MG",
+      "envelopamento automotivo Formiga",
+      "película residencial Formiga",
+      "película cerâmica Formiga MG"
+    ],
+    "palavras_chave_secundarias": [
+      "PPF Divinópolis",
+      "insulfilm Divinópolis",
+      "proteção de pintura automotiva MG",
+      "envelopamento de moto Minas Gerais",
+      "película para janela de vidro residencial MG",
+      "película jateada porta de vidro",
+      "envelopamento de móveis planejados",
+      "aplicação de PPF em moto",
+      "película Nexus NX Ceramic"
+    ],
+    "palavras_chave_informativas_blog": [
+      "película 5% é permitida pela lei?",
+      "qual a diferença entre PPF e vitrificação?",
+      "quanto dura o insulfilm cerâmico?",
+      "PPF vale a pena em carro 0km?",
+      "película cerâmica x película convencional",
+      "cuidados após aplicar película automotiva",
+      "quanto custa PPF em um SUV",
+      "película bloqueia sinal de celular e GPS?"
+    ],
+    "pauta_editorial_inicial": [
+      { "titulo": "PPF vale a pena? O que ninguém te conta antes de proteger a pintura", "objetivo": "captar topo de funil de alto ticket" },
+      { "titulo": "Percentuais de película: o que significa 5%, 20% e 30% na prática", "objetivo": "educar e reduzir objeção" },
+      { "titulo": "Legislação de películas automotivas: o que é permitido no Brasil", "objetivo": "alto volume de busca" },
+      { "titulo": "Película cerâmica x carbono x convencional: comparativo real de rejeição de calor", "objetivo": "meio de funil" },
+      { "titulo": "Como o corte computadorizado evita danos no seu carro", "objetivo": "diferencial competitivo" },
+      { "titulo": "PPF em motos: onde aplicar e por que áreas críticas resolvem", "objetivo": "nicho de motos" },
+      { "titulo": "Película residencial: reduza o calor da sua casa sem perder a luz natural", "objetivo": "educar público residencial" }
+    ]
