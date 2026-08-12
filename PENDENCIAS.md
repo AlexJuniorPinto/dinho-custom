@@ -60,10 +60,16 @@ Sem os quatro, não convence. O ideal é um de PPF, um de película e um de moto
 Todos os espaços cinzas do site são slots nomeados. A lista completa dos **44 arquivos**,
 com o nome exato e o que fotografar em cada um, está em **`img/README.md`**.
 
-Já entraram 5: o herói da home e os 4 cards de serviço. Faltam 39.
+Já entraram 9: o herói da home, os 4 cards de serviço, o par de antes e depois do
+capô e os 2 primeiros tiles do portfólio (Ferrari 458 e KTM). Faltam 35.
 
-Prioridade agora: os **4 pares de antes e depois**. É a prova visual mais forte
-que este negócio tem, e o comparador arrastável já está construído esperando por eles.
+**Achado ao subir a Ferrari:** o arquivo do herói da home é byte a byte o mesmo da
+Ferrari do portfólio, e é um PNG de 2,3 MB com extensão `.jpg` — sendo a imagem de LCP
+da página. Os dois problemas estão descritos em `img/README.md`.
+
+Prioridade agora: os **3 pares de antes e depois que faltam** — película nos vidros,
+grade em black piano e tanque de moto. É a prova visual mais forte que este negócio
+tem, e o comparador arrastável já está no ar com o primeiro par.
 Atenção ao detalhe que faz ou quebra a seção: **as duas fotos do par precisam do mesmo
 enquadramento, mesma distância e mesma luz.**
 

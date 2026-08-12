@@ -104,8 +104,52 @@ Personalidade **Premium**: lento, sem overshoot, nada pisca.
 
 **O momento autoral é a carga do herói**, e só ele. Três linhas sobem de uma máscara em
 stagger de 90ms, as barras `//` crescem em `scaleY`, a mídia desce de `scale(1.07)` em
-2,2s, e a régua vermelha da margem começa a pulsar. A sequência espera `document.fonts.ready`
+2,2s, e a régua vermelha de scroll começa a pulsar — ela abre o bloco, 24px acima do `//` e
+no mesmo eixo do texto e do botão. É absoluta dentro de `.hero__inner`, não do herói, para
+acompanhar o bloco em qualquer altura de tela; abaixo de 760px de altura ela some, porque o
+bloco encosta na sarjeta do topo e ela entraria por baixo do nav. A sequência espera `document.fonts.ready`
 (com teto de 900ms) para a linha não subir com a métrica errada.
+
+### Entrada (só na home)
+
+Antes da carga do herói, `.intro` — ~1,9s, e é a única coisa no site que segura a página.
+Só as barras `//` da logo entram: nenhum wordmark, nenhum spinner, nenhuma porcentagem.
+
+1. **0–710ms** — tela `--ink-900`. As duas barras abrem em vermelho **do meio para as duas
+   pontas**, no centro exato da tela, stagger de 90ms, `--ease-out`. A abertura é
+   `clip-path: inset(50% 0)` → `inset(0)`, e não `scaleY`, porque o `transform` precisa
+   ficar intocado: ele tem que ser idêntico ao de `.mark i` para o pouso cair em cima.
+2. **1000ms** — voo. O JS mede `.hero .mark` e leva a barra grande até o retângulo exato
+   dela por `translate` + `scale` (FLIP), em 860ms. Ao mesmo tempo a cortina sai
+   enviesada nos mesmos **-18deg** da barra, com um fio vermelho de 2px na borda que
+   varre a tela — o `/` cortando o preto. O herói entra 90ms depois do voo começar: a
+   revelação e a carga são um movimento só.
+3. **1860ms** — pouso. `.hero.is-handoff` faz a marca real assumir sem transição, e a
+   entrada sai do DOM. As duas são pixel a pixel a mesma coisa: erro medido de **0,26px**
+   em 1440×900, 390×844 e 1280×560.
+
+O que faz a troca funcionar, e o que quebra se alguém mexer:
+
+- `.intro__mark i` repete `transform-origin: bottom` de `.mark i`. Com a origem no centro,
+  o `skewX(-18deg)` desloca a barra em 0,16 × a altura e o pouso pisca de lado.
+- A proporção da barra grande não é chutada: o JS lê `width`, `height` e `gap` computados
+  da marca pequena e reescreve `--bar-w` e `--bar-gap` como fração de `--bar-h`.
+- **Quem centraliza é o navegador**, com `place-items: center` no `.intro__stage`. A conta
+  em JS que existia antes lia a viewport antes do layout assentar e errava o centro em
+  ~14px. O voo virou delta entre dois retângulos medidos (`--dx`/`--dy`), então nenhuma
+  suposição sobre viewport, scrollbar ou compensação sobra no caminho.
+- O centro é **óptico, não geométrico**: o skew joga o topo da barra `tan(18deg) × altura`
+  para a direita, e isso é compensado por `padding-right` no palco. Tem que ser padding, e
+  não margem na marca — dentro do grid a margem entra na conta da centralização e metade
+  da compensação se anula.
+- A medida do alvo acontece **na hora do voo**, depois da fonte, porque a marca fica
+  acima de um `h1` de três linhas num herói ancorado embaixo: métrica errada, alvo errado.
+
+Saídas, todas testadas: `prefers-reduced-motion` e ausência de JS matam a entrada por CSS
+(`.intro { display: none }`, liberada só por `.js`); âncora na URL ou scroll já rolado
+pulam a entrada; qualquer toque, tecla, clique ou scroll durante a entrada encurta tudo
+para 320ms; alvo sem altura ou fora da viewport sai por fade; um `setTimeout` de 5,2s no
+JS e uma animação de 6s no CSS garantem que ninguém fique preso atrás do preto.
 
 Cada seção depois disso tem entrada **própria**, nunca a mesma repetida:
 
@@ -168,3 +212,9 @@ Playwright em 1440×900 e 390×844, nas 7 páginas: **zero erro de console, zero
 faltando, zero imagem sem `alt`, zero scroll horizontal**. Detector mecânico do Impeccable:
 limpo. Os dois "estouros" relatados pelo scanner são intencionais e contidos — o marquee
 mascarado e as tabelas de especificação em `overflow-x: auto`.
+
+A entrada foi verificada à parte, em 1440×900, 1232×1040, 390×844, 1280×560 e 800×360:
+centro da tinta com erro **0,0px** contra o centro da tela, pouso com erro máximo de
+0,26px contra a marca real, zero erro de console, zero scroll horizontal, e o herói sempre
+chega em `is-live` — com clique, tecla ou scroll no meio da entrada, com
+`prefers-reduced-motion`, com âncora na URL e com o JS desligado.

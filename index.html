@@ -138,13 +138,25 @@
   STORY: Dono de carro 0km entende que o filme é cortado por máquina fora do veículo,
     vê o acabamento de perto no antes e depois, e pede orçamento no WhatsApp já com
     o serviço e o modelo identificados na mensagem.
-  FIRST VIEWPORT: Mídia sangrando em 100svh, headline de três linhas no canto inferior
-    esquerdo sobre gradiente duplo, // vermelho acima dela, ação branca + link com seta
-    ao lado, régua vertical piscando na margem. Credibilidade em marquee logo abaixo.
+  FIRST VIEWPORT: Entrada de ~1,9s — as barras // crescem em vermelho no centro da tela
+    preta e são levadas até o lugar da marca no herói enquanto a cortina sai num corte
+    de -18deg. Depois: mídia sangrando em 100svh, headline de três linhas no canto
+    inferior esquerdo sobre gradiente duplo, // vermelho acima dela, ação branca + link
+    com seta ao lado. Régua vertical piscando abre o bloco, acima do //, no mesmo eixo.
+    Credibilidade em marquee logo depois.
   FORM: Canon da categoria — saída permanente escolhida pelo usuário sobre o sorteio de
     índice 5 (Molde de Corte). Régua de acabamento: Porsche / Polestar / BMW M. Seed b07b2364.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->
+
+<!-- Entrada. As duas barras // da logo crescem em vermelho no centro do preto e são
+     conduzidas até o lugar onde a marca vive no herói, onde a marca real assume.
+     Só existe com JS e só na home; some inteira em prefers-reduced-motion.
+     Coreografia em bootIntro() no js/main.js. -->
+<div class="intro" aria-hidden="true">
+  <span class="intro__veil"></span>
+  <span class="intro__stage"><span class="intro__mark"><i></i><i></i></span></span>
+</div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
@@ -213,17 +225,21 @@
        ==================================================================== -->
   <section class="hero">
     <div class="hero__media">
-      <!-- Foto vertical, cortada pelo cover. O object-position é o que decide a altura do
-           corte na tela larga: 50% deixa o carro ocupando o quadro e o operador só
-           começando a entrar no topo. Subir o número tira a pessoa, descer traz ela.
+      <!-- ATENÇÃO: este arquivo é byte a byte o mesmo de img/portfolio/ferrari-458-full-ppf.png,
+           então a mesma Ferrari aparece no herói e no primeiro tile do portfólio. Trocar por
+           uma foto exclusiva do herói. O arquivo também é um PNG de 2,3 MB com extensão .jpg,
+           e é a imagem de LCP da home — converter para JPG de verdade.
+           O object-position decide a altura do corte na tela larga: subir o número mostra
+           mais teto, descer mostra mais piso.
            Para trocar por vídeo: <video autoplay muted loop playsinline poster="img/hero-poster.jpg"> -->
       <img src="img/hero-oficina.jpg"
-           alt="Capô de Porsche preto espelhando a iluminação hexagonal do box da Dinho Custom, em Formiga MG"
-           width="1440" height="1911" style="object-position: 50% 50%"
+           alt="Ferrari 458 vermelha com Full PPF no box da Dinho Custom, sob a iluminação hexagonal, em Formiga MG"
+           width="1548" height="1016" style="object-position: 50% 50%"
            fetchpriority="high" decoding="async">
     </div>
 
     <div class="hero__inner">
+      <span class="hero__cue" aria-hidden="true"></span>
       <span class="mark" aria-hidden="true"><i></i><i></i></span>
 
       <h1 class="hero__title">
@@ -249,8 +265,6 @@
         </a>
       </div>
     </div>
-
-    <span class="hero__cue" aria-hidden="true"></span>
   </section>
 
   <!-- ====================================================================
@@ -431,7 +445,7 @@
 
       <div class="compare__tabs" role="tablist" aria-label="Casos para comparar">
         <button class="compare__tab" role="tab" aria-selected="true" type="button"
-          data-case='{"before":"img/antes-depois/ppf-capo-antes.jpg","after":"img/antes-depois/ppf-capo-depois.jpg","caption":"<b>PPF em capô</b> · Riscos de estrada e marca de inseto antes do filme."}'>PPF em capô</button>
+          data-case='{"ready":true,"before":"img/antes-depois/ppf-capo-antes.jpg","after":"img/antes-depois/ppf-capo-depois.jpg","altBefore":"Capô de Honda cinza riscado por micro-arranhões circulares de lavagem, antes do PPF na Dinho Custom, em Formiga MG","altAfter":"Mesmo capô de Honda cinza com a pintura corrigida e PPF aplicado na Dinho Custom, em Formiga MG","caption":"<b>PPF em capô</b> · Micro-riscos circulares de lavagem no antes. Depois, pintura corrigida e filme aplicado — mesma luz, mesma distância, mesmo ângulo."}'>PPF em capô</button>
         <button class="compare__tab" role="tab" aria-selected="false" type="button"
           data-case='{"before":"img/antes-depois/pelicula-lateral-antes.jpg","after":"img/antes-depois/pelicula-lateral-depois.jpg","caption":"<b>Película nas laterais</b> · Mesma hora do dia, mesma posição de câmera."}'>Película nos vidros</button>
         <button class="compare__tab" role="tab" aria-selected="false" type="button"
@@ -440,9 +454,14 @@
           data-case='{"before":"img/antes-depois/moto-tanque-antes.jpg","after":"img/antes-depois/moto-tanque-depois.jpg","caption":"<b>PPF em tanque de moto</b> · Área de contato com joelho e fecho de jaqueta."}'>PPF em tanque</button>
       </div>
 
+      <!-- Cada lado tem a foto e o slot vazio. Quem manda é o `ready` do data-case da
+           aba: caso com foto mostra o <img>, caso sem foto volta para o placeholder. -->
       <div class="compare" data-compare>
         <div class="compare__pane compare__pane--before">
-          <div class="slot">
+          <img data-compare-img src="img/antes-depois/ppf-capo-antes.jpg"
+               alt="Capô de Honda cinza riscado por micro-arranhões circulares de lavagem, antes do PPF na Dinho Custom, em Formiga MG"
+               width="1536" height="864" loading="lazy" decoding="async">
+          <div class="slot" data-compare-slot hidden>
             <div class="slot__meta">
               <span class="slot__name">img/antes-depois/ppf-capo-antes.jpg</span>
               <span class="slot__hint">O par antes/depois precisa do mesmo enquadramento, mesma luz e mesma distância. Sem isso a comparação não convence.</span>
@@ -451,7 +470,10 @@
           <span class="compare__badge compare__badge--before">Antes</span>
         </div>
         <div class="compare__pane compare__pane--after">
-          <div class="slot">
+          <img data-compare-img src="img/antes-depois/ppf-capo-depois.jpg"
+               alt="Mesmo capô de Honda cinza com a pintura corrigida e PPF aplicado na Dinho Custom, em Formiga MG"
+               width="1536" height="864" loading="lazy" decoding="async">
+          <div class="slot" data-compare-slot hidden>
             <div class="slot__meta">
               <span class="slot__name">img/antes-depois/ppf-capo-depois.jpg</span>
               <span class="slot__hint">Mesmo enquadramento do antes.</span>
@@ -464,7 +486,7 @@
           aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-orientation="horizontal"></button>
       </div>
 
-      <p class="compare__caption" data-compare-caption><b>PPF em capô</b> · Riscos de estrada e marca de inseto antes do filme.</p>
+      <p class="compare__caption" data-compare-caption><b>PPF em capô</b> · Micro-riscos circulares de lavagem no antes. Depois, pintura corrigida e filme aplicado — mesma luz, mesma distância, mesmo ângulo.</p>
     </div>
   </section>
 
@@ -488,8 +510,8 @@
       <p class="sr-only" role="status" data-filter-status></p>
 
       <div class="grid-work">
-        <figure class="work" data-tags="ppf"><div class="slot"><div class="slot__meta"><span class="slot__name">img/portfolio/ferrari-458-full-ppf.jpg</span></div></div><span class="work__bar"></span><figcaption class="work__meta"><span class="work__name">Ferrari 458</span><span class="work__type">Full PPF</span></figcaption></figure>
-        <figure class="work" data-tags="ppf moto"><div class="slot"><div class="slot__meta"><span class="slot__name">img/portfolio/ktm-2026-ppf.jpg</span></div></div><span class="work__bar"></span><figcaption class="work__meta"><span class="work__name">KTM 2026 0km</span><span class="work__type">PPF completo</span></figcaption></figure>
+        <figure class="work" data-tags="ppf"><img src="img/portfolio/ferrari-458-full-ppf.jpg" alt="Ferrari 458 vermelha com Full PPF aplicado, no box da Dinho Custom em Formiga MG" width="1200" height="900" loading="lazy" decoding="async"><span class="work__bar"></span><figcaption class="work__meta"><span class="work__name">Ferrari 458</span><span class="work__type">Full PPF</span></figcaption></figure>
+        <figure class="work" data-tags="ppf moto"><img src="img/portfolio/ktm-2026-ppf.jpg" alt="Frente de KTM 2026 0km laranja com PPF aplicado na Dinho Custom, em Formiga MG" width="304" height="228" loading="lazy" decoding="async"><span class="work__bar"></span><figcaption class="work__meta"><span class="work__name">KTM 2026 0km</span><span class="work__type">PPF completo</span></figcaption></figure>
         <figure class="work" data-tags="ppf"><div class="slot"><div class="slot__meta"><span class="slot__name">img/portfolio/toro-ranch-full-ppf.jpg</span></div></div><span class="work__bar"></span><figcaption class="work__meta"><span class="work__name">Fiat Toro Ranch 0km</span><span class="work__type">Full PPF</span></figcaption></figure>
         <figure class="work" data-tags="ppf"><div class="slot"><div class="slot__meta"><span class="slot__name">img/portfolio/honda-hrv-full-ppf.jpg</span></div></div><span class="work__bar"></span><figcaption class="work__meta"><span class="work__name">Honda HR-V</span><span class="work__type">Full PPF</span></figcaption></figure>
         <figure class="work" data-tags="pelicula"><div class="slot"><div class="slot__meta"><span class="slot__name">img/portfolio/audi-a4-pelicula.jpg</span></div></div><span class="work__bar"></span><figcaption class="work__meta"><span class="work__name">Audi A4 Prestige</span><span class="work__type">Película 5% e 20%</span></figcaption></figure>

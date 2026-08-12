@@ -5,14 +5,24 @@ arquivo está escrito dentro do próprio slot, na tela. Salve a foto com aquele 
 na pasta indicada, e **troque o bloco do slot pela tag `<img>`** — o site não faz essa
 troca sozinho, é uma linha de HTML por foto.
 
-## Já preenchidos — 5 de 44
+## Já preenchidos — 9 de 44
 
 | Arquivo | Onde |
 |---|---|
-| `hero-oficina.jpg` | herói da home |
+| `hero-oficina.jpg` | herói da home — **ver pendência abaixo** |
 | `servicos/ppf.jpg` · `servicos/peliculas.jpg` · `servicos/envelopamento.jpg` · `servicos/arquitetonico.jpg` | os 4 cards de serviço da home |
+| `antes-depois/ppf-capo-antes.jpg` · `antes-depois/ppf-capo-depois.jpg` | primeira aba do comparador |
+| `portfolio/ferrari-458-full-ppf.jpg` · `portfolio/ktm-2026-ppf.jpg` | 2 primeiros tiles do portfólio |
 
-Faltam 39: os 5 heróis das páginas internas, os 8 do antes e depois e os 26 do portfólio.
+Faltam 35: os 5 heróis das páginas internas, os 6 do antes e depois e os 24 do portfólio.
+
+### Duas pendências no `hero-oficina.jpg`
+
+1. **É o mesmo arquivo da Ferrari do portfólio**, byte a byte — mesmo MD5. A mesma foto
+   aparece duas vezes na home. Falta uma foto exclusiva do herói.
+2. **É um PNG de 2,3 MB com extensão `.jpg`.** É a imagem de LCP da home, carregada com
+   `fetchpriority="high"`: é o item mais pesado do site inteiro. Reexportar como JPG de
+   verdade derruba para uns 200 KB.
 
 ## Como trocar um slot por uma foto
 
@@ -81,9 +91,28 @@ Cada par precisa da **mesma distância, mesmo ângulo e mesma luz**. Tire a foto
 "antes" já pensando em repetir exatamente o enquadramento depois. Se as duas fotos
 não baterem, o comparador denuncia em vez de convencer.
 
+O comparador é o único lugar do site que **não** pede troca de HTML por foto. As duas
+tags `<img>` já existem, e quem manda são os campos do `data-case` da aba, em
+`index.html`. Para publicar um par, edite a aba e troque `"ready":false` por
+`"ready":true`, preenchendo `altBefore`, `altAfter` e `caption`:
+
+```html
+data-case='{"ready":true,
+            "before":"img/antes-depois/grade-antes.jpg",
+            "after":"img/antes-depois/grade-depois.jpg",
+            "altBefore":"Grade frontal original ... em Formiga MG",
+            "altAfter":"Grade envelopada em black piano ... em Formiga MG",
+            "caption":"<b>Grade em black piano</b> · ..."}'
+```
+
+Sem o `ready`, o lado volta para o slot cinza com o nome do arquivo — é assim que as
+abas ainda não fotografadas se comportam hoje. A primeira aba, a do capô, serve de
+modelo. Se o par for o da **primeira** aba, atualize também as duas tags `<img>` da
+seção, que carregam o estado inicial da página.
+
 | Par | Arquivos |
 |---|---|
-| PPF em capô | `antes-depois/ppf-capo-antes.jpg` · `antes-depois/ppf-capo-depois.jpg` |
+| ~~PPF em capô~~ | **Feito.** `antes-depois/ppf-capo-antes.jpg` · `antes-depois/ppf-capo-depois.jpg` |
 | Película nos vidros | `antes-depois/pelicula-lateral-antes.jpg` · `antes-depois/pelicula-lateral-depois.jpg` |
 | Grade em black piano | `antes-depois/grade-antes.jpg` · `antes-depois/grade-depois.jpg` |
 | PPF em tanque de moto | `antes-depois/moto-tanque-antes.jpg` · `antes-depois/moto-tanque-depois.jpg` |
@@ -94,8 +123,10 @@ Todos os veículos abaixo já aparecem no Instagram. É só recuperar a foto ori
 em boa resolução, e salvar com o nome indicado.
 
 **PPF**
-- `portfolio/ferrari-458-full-ppf.jpg` — Ferrari 458, Full PPF
-- `portfolio/ktm-2026-ppf.jpg` — KTM 2026 0km, PPF completo
+- ~~`portfolio/ferrari-458-full-ppf.jpg`~~ — **Feito.** Ferrari 458, Full PPF
+- ~~`portfolio/ktm-2026-ppf.jpg`~~ — **Feito**, mas o original tem só **306 px de largura**.
+  Entrou em 304 × 228, bem abaixo dos 1200 × 900 do padrão, e fica mole em tela retina.
+  Vale recuperar a foto original do Instagram em resolução cheia e reexportar
 - `portfolio/toro-ranch-full-ppf.jpg` — Fiat Toro Ranch 0km, Full PPF
 - `portfolio/honda-hrv-full-ppf.jpg` — Honda HR-V, Full PPF
 - `portfolio/cbr-fireblade-ppf.jpg` — Honda CBR Fireblade, áreas críticas

@@ -46,25 +46,176 @@
    * Herói — a sequência autoral de carga
    * ---------------------------------------------------------------------- */
 
-  function bootHero() {
+  // Esperar a fonte evita a linha subir com a métrica errada. Teto de 900ms:
+  // fonte lenta não segura a página.
+  function whenFontsReady(fn) {
+    var settled = false;
+    var go = function () { if (!settled) { settled = true; requestAnimationFrame(fn); } };
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(go);
+      setTimeout(go, 900);
+    } else {
+      requestAnimationFrame(go);
+    }
+  }
+
+  // Prepara o herói e devolve o gatilho. Quem decide a hora é a entrada:
+  // sem ela, é a fonte; com ela, é o momento em que a cortina começa a sair.
+  function prepareHero() {
     var hero = document.querySelector('.hero, .phero');
-    if (!hero) return;
+    if (!hero) return function () {};
 
     all('.reveal-line, .mark i', hero).forEach(function (el, i) {
       el.style.setProperty('--i', i);
     });
 
-    var start = function () { hero.classList.add('is-live'); };
+    var started = false;
+    return function () {
+      if (started) return;
+      started = true;
+      hero.classList.add('is-live');
+    };
+  }
 
-    if (document.fonts && document.fonts.ready) {
-      // Esperar a fonte evita a linha subir com a métrica errada
-      var settled = false;
-      var go = function () { if (!settled) { settled = true; requestAnimationFrame(start); } };
-      document.fonts.ready.then(go);
-      setTimeout(go, 900);
-    } else {
-      requestAnimationFrame(start);
+  /* ---------------------------------------------------------------------- *
+   * Entrada — as barras // da logo até a marca do herói
+   *
+   * FLIP: as barras grandes crescem centradas na tela preta e são levadas por
+   * translate + scale até o retângulo exato de .hero .mark, medido no momento
+   * do voo. No pouso a marca real assume, sem transição, e a entrada é
+   * removida do DOM. A cortina sai enviesada nos mesmos -18deg da barra.
+   * ---------------------------------------------------------------------- */
+
+  function bootIntro(startHero) {
+    // As barras levam ~710ms para crescer no centro; ENTER dá o respiro antes
+    // do voo. Somados, a entrada inteira fica em ~1,9s.
+    var ENTER = 1000;
+    var FLIGHT = 860;   // deve casar com a transição de .intro__mark no CSS
+
+    var intro = document.querySelector('.intro');
+    var introMark = intro && intro.querySelector('.intro__mark');
+    var hero = document.querySelector('.hero');
+    var mark = hero && hero.querySelector('.mark');
+    var bar = mark && mark.querySelector('i');
+
+    // Sem entrada na página, sem alvo para pousar, com movimento reduzido, ou
+    // quando o visitante já chega no meio da página (âncora, scroll restaurado):
+    // o herói entra direto, como se a entrada não existisse.
+    if (!intro || !introMark || !mark || !bar || REDUCED.matches ||
+        window.location.hash || window.scrollY > 40) {
+      if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+      whenFontsReady(startHero);
+      return;
     }
+
+    var timers = [];
+    var flying = false;
+    var landed = false;
+
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function stop() { timers.forEach(clearTimeout); timers.length = 0; }
+
+    var EVENTS = ['pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'];
+    function watch(add) {
+      EVENTS.forEach(function (ev) {
+        window[(add ? 'add' : 'remove') + 'EventListener'](ev, cut, { passive: true });
+      });
+    }
+
+    // Pouso: a marca real toma o lugar da barra que voou, no mesmo quadro.
+    function hand() {
+      if (landed) return;
+      landed = true;
+      stop();
+      watch(false);
+      hero.classList.remove('is-intro');
+      hero.classList.add('is-handoff');
+      startHero();
+    }
+
+    // Fora do controle de stop(): a cortina sai mesmo se algo cancelar o resto.
+    function drop(ms) {
+      window.setTimeout(function () {
+        if (intro.parentNode) intro.parentNode.removeChild(intro);
+      }, ms || 0);
+    }
+
+    function fly(ms) {
+      if (flying || landed) return;
+      flying = true;
+
+      var t = mark.getBoundingClientRect();
+      var m = introMark.getBoundingClientRect();
+
+      // Alvo fora de vista ou sem altura: não existe pouso honesto, sai por fade
+      if (t.height < 4 || m.height < 4 || t.top < 0 || t.bottom > intro.clientHeight) {
+        intro.classList.add('is-out');
+        hand();
+        drop(360);
+        return;
+      }
+
+      // Delta entre dois retângulos medidos: não há suposição sobre viewport,
+      // scrollbar ou compensação óptica — o que estiver na tela é o que vale.
+      intro.style.setProperty('--dx', (t.left - m.left).toFixed(2) + 'px');
+      intro.style.setProperty('--dy', (t.top - m.top).toFixed(2) + 'px');
+      intro.style.setProperty('--land-s', (t.height / m.height).toFixed(4));
+      intro.classList.add('is-flying');
+
+      // O herói entra enquanto a cortina ainda está saindo: as duas coisas são
+      // um movimento só, não uma depois da outra.
+      later(startHero, 90);
+      later(function () { hand(); drop(0); }, ms);
+    }
+
+    // Visitante interrompeu. Se as barras já estão no ar, deixa terminar.
+    function cut(e) {
+      if (landed || flying) return;
+      // Scroll fantasma não é intenção de ninguém: restauração de posição,
+      // resize do painel do DevTools e imagem que entra tarde disparam scroll
+      // com a página ainda no topo. Só corta quando a página realmente saiu.
+      if (e && e.type === 'scroll' && window.scrollY < 8) return;
+      // Modificador sozinho (Alt+Tab, Shift ao voltar para a janela) também não
+      if (e && e.type === 'keydown' &&
+          (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' || e.key === 'Meta')) return;
+      stop();
+      intro.classList.add('is-fast');
+      fly(320);
+    }
+
+    hero.classList.add('is-intro');
+
+    // A barra grande herda a proporção exata da marca pequena. Sem isso o
+    // pouso cai perto, não em cima, e a troca pisca.
+    var cs = window.getComputedStyle(bar);
+    var bw = parseFloat(cs.width);
+    var bh = parseFloat(cs.height);
+    var gap = parseFloat(window.getComputedStyle(mark).columnGap) || 4;
+    if (bw && bh) {
+      intro.style.setProperty('--bar-w', 'calc(var(--bar-h) * ' + (bw / bh).toFixed(4) + ')');
+      intro.style.setProperty('--bar-gap', 'calc(var(--bar-h) * ' + (gap / bh).toFixed(4) + ')');
+    }
+
+    intro.classList.add('is-ready');
+
+    watch(true);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { intro.classList.add('is-in'); });
+    });
+
+    // O voo espera a fonte: a posição da marca no herói depende da métrica do
+    // título que está embaixo dela. O teto de whenFontsReady é 900ms, abaixo
+    // de ENTER, então na prática quem manda é o tempo da entrada.
+    var minDone = false;
+    var fontsDone = false;
+    function ready() { if (minDone && fontsDone) fly(FLIGHT); }
+
+    whenFontsReady(function () { fontsDone = true; ready(); });
+    later(function () { minDone = true; ready(); }, ENTER);
+
+    // Rede de segurança: nada pode deixar o herói preso atrás da cortina.
+    window.setTimeout(function () { hand(); drop(0); }, 5200);
   }
 
   /* ---------------------------------------------------------------------- *
@@ -246,7 +397,24 @@
         taught.observe(root);
       }
 
-      // Troca de case
+      // Troca de case. Enquanto o par de fotos não existe, o lado volta para o slot
+      // nomeado — é o `ready` do data-case que decide, não a presença do arquivo.
+      function fillPane(side, src, alt, ready) {
+        var pane = root.querySelector('.compare__pane--' + side);
+        if (!pane) return;
+        var img = pane.querySelector('[data-compare-img]');
+        var slot = pane.querySelector('[data-compare-slot]');
+        var name = slot && slot.querySelector('.slot__name');
+
+        if (name && src) name.textContent = src;
+        if (img) {
+          if (ready && src) { img.src = src; img.alt = alt || ''; }
+          else { img.removeAttribute('src'); img.alt = ''; }
+          img.hidden = !(ready && src);
+        }
+        if (slot) slot.hidden = !!(ready && src);
+      }
+
       var tabs = all('[role="tab"]', root.closest('[data-compare-group]') || document);
       tabs.forEach(function (tab) {
         on(tab, 'click', function () {
@@ -254,10 +422,8 @@
           tab.setAttribute('aria-selected', 'true');
 
           var data = JSON.parse(tab.getAttribute('data-case') || '{}');
-          var beforeSlot = root.querySelector('.compare__pane--before .slot__name');
-          var afterSlot = root.querySelector('.compare__pane--after .slot__name');
-          if (beforeSlot && data.before) beforeSlot.textContent = data.before;
-          if (afterSlot && data.after) afterSlot.textContent = data.after;
+          fillPane('before', data.before, data.altBefore, data.ready);
+          fillPane('after', data.after, data.altAfter, data.ready);
 
           var cap = document.querySelector('[data-compare-caption]');
           if (cap && data.caption) cap.innerHTML = data.caption;
@@ -494,7 +660,7 @@
   function init() {
     wireWhatsapp();
     wireNav();
-    bootHero();
+    bootIntro(prepareHero());
     wireReveals();
     wireCompare();
     wireFilters();
