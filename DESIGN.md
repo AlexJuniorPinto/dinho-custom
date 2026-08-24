@@ -1,4 +1,4 @@
-# Design — Dinho Custom
+# Design — Joao Custom
 
 Registro do sistema **como ele foi construído**, não como foi planejado.
 Fonte da verdade: `css/main.css`. A verdade do produto vive em `PRODUCT.md`.
@@ -36,7 +36,7 @@ do Instagram, à noite, no celular.
 | `--red-deep` | `#c0301f` | Raro: quando exige texto branco por cima |
 | `--wpp` / `--wpp-ink` | `#25d366` / `#06210f` | Único canal funcional fora da paleta |
 
-`--red` **não foi suposto**. Foi extraído do `dinho-logo.png`: mediana de 7.838 pixels do
+`--red` **não foi suposto**. Foi extraído do `joao-logo.png`: mediana de 7.838 pixels do
 núcleo erodido das barras `//`. O briefing supunha `#E1121C`, um vermelho-fogo puro; o
 vermelho real da marca é bem mais quente. O fundo do PNG original é `#0C0D11`, quase
 idêntico ao ground escolhido.

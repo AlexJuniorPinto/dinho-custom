@@ -1,22 +1,22 @@
 {
   "meta": {
     "documento": "Briefing técnico e estratégico para desenvolvimento de website",
-    "fonte_dados": "Perfil público do Instagram @dinhocustom",
-    "url_fonte": "https://www.instagram.com/dinhocustom/",
+    "fonte_dados": "Perfil público do Instagram @joaocustom",
+    "url_fonte": "https://www.instagram.com/joaocustom/",
     "data_analise": "2026-08-11",
     "posts_analisados": 38,
     "observacao": "Dados extraídos de conteúdo público. Itens marcados como 'confirmar_com_cliente' não estão publicados no perfil."
   },
 
   "negocio": {
-    "nome_fantasia": "Dinho Custom",
-    "handle_instagram": "@dinhocustom",
-    "nome_exibicao_instagram": "Dinho Custom | PPF | Películas | Automotivo | Arquitetura",
+    "nome_fantasia": "Joao Custom",
+    "handle_instagram": "@joaocustom",
+    "nome_exibicao_instagram": "Joao Custom | PPF | Películas | Automotivo | Arquitetura",
     "categoria_instagram": "Produto/serviço",
     "posicionamento_declarado": "Novo padrão de excelência em películas",
     "segmento": "Películas automotivas, PPF (Paint Protection Film), envelopamento e películas arquitetônicas",
     "responsavel_tecnico": {
-      "apelido_marca": "Dinho",
+      "apelido_marca": "Joao",
       "nome_provavel": "Lucas Nunes Teixeira",
       "perfil_pessoal": "@lukasteixeir",
       "observacao": "Nome identificado em certificados expostos na loja; confirmar grafia oficial"
@@ -238,7 +238,7 @@
   "identidade_visual": {
     "logo": {
       "tipo": "Wordmark",
-      "texto": "//DINHO CUSTOM",
+      "texto": "//JOAO CUSTOM",
       "elemento_grafico": "Barras duplas inclinadas (//)",
       "assinatura_secundaria": "Envelopamento e Insulfilm / Envelopamento e film residencial",
       "tipografia": "Condensada, maiúsculas, industrial",
@@ -325,7 +325,7 @@
       { "pagina": "Envelopamento", "slug": "/envelopamento", "prioridade": 2 },
       { "pagina": "Películas Arquitetônicas e Residenciais", "slug": "/peliculas-residenciais", "prioridade": 2 },
       { "pagina": "Portfólio", "slug": "/portfolio", "prioridade": 1 },
-      { "pagina": "Sobre a Dinho Custom", "slug": "/sobre", "prioridade": 2 },
+      { "pagina": "Sobre a Joao Custom", "slug": "/sobre", "prioridade": 2 },
       { "pagina": "Blog", "slug": "/blog", "prioridade": 3 },
       { "pagina": "Contato e Orçamento", "slug": "/contato", "prioridade": 1 },
       { "pagina": "PPF em Formiga MG", "slug": "/ppf-formiga-mg", "prioridade": 3, "tipo": "landing SEO local" },
@@ -337,7 +337,7 @@
       { "ordem": 1, "secao": "Herói", "conteudo": "Vídeo em loop da oficina (iluminação hexagonal) + headline de proteção premium + CTA duplo: 'Orçamento no WhatsApp' e 'Ver portfólio'" },
       { "ordem": 2, "secao": "Barra de credibilidade", "conteudo": "Corte computadorizado · Instaladores certificados · Garantia de até 5 anos · Nexus Window Film" },
       { "ordem": 3, "secao": "Serviços", "conteudo": "4 cards: PPF, Películas, Envelopamento, Arquitetônico" },
-      { "ordem": 4, "secao": "Por que a Dinho Custom", "conteudo": "Diferenciais em 3 a 6 blocos com ícones" },
+      { "ordem": 4, "secao": "Por que a Joao Custom", "conteudo": "Diferenciais em 3 a 6 blocos com ícones" },
       { "ordem": 5, "secao": "Antes e depois", "conteudo": "Slider comparativo com 4 a 6 cases" },
       { "ordem": 6, "secao": "Portfólio destaque", "conteudo": "Grid com Ferrari 458, KTM 2026, Audi A4, Toro Ranch" },
       { "ordem": 7, "secao": "Depoimentos", "conteudo": "3 a 5 depoimentos com nome, cidade e veículo" },

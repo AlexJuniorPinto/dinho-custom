@@ -11,7 +11,7 @@ Ordem de prioridade: **bloqueia a publicação** → **custa conversão** → **
 ## 1. Bloqueia a publicação
 
 ### 1.1 Domínio
-Hoje o site aponta para `https://www.dinhocustom.com.br` em todas as tags canônicas,
+Hoje o site aponta para `https://www.joaocustom.com.br` em todas as tags canônicas,
 Open Graph, sitemap e robots. Se o domínio registrado for outro, é uma busca e
 substituição em 7 arquivos.
 

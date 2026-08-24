@@ -40,7 +40,7 @@ Troque o bloco inteiro por:
 
 ```html
 <img src="img/portfolio/ferrari-458-full-ppf.jpg"
-     alt="Full PPF aplicado em Ferrari 458 na Dinho Custom, Formiga MG"
+     alt="Full PPF aplicado em Ferrari 458 na Joao Custom, Formiga MG"
      width="1200" height="900" loading="lazy" decoding="async">
 ```
 
@@ -163,15 +163,15 @@ de 2022 e não sustenta a página. Vale fotografar os próximos trabalhos.*
 
 ## Logo
 
-Os arquivos em `logo/` foram gerados a partir do `dinho-logo.png` original: fundo
+Os arquivos em `logo/` foram gerados a partir do `joao-logo.png` original: fundo
 removido, recortados e otimizados. O wordmark saiu de **960 KB para 7,6 KB**.
 
 | Arquivo | Uso |
 |---|---|
-| `logo/dinho-wordmark.png` | Barra de navegação — só a linha `//DINHO CUSTOM` |
-| `logo/dinho-lockup.png` | Rodapé — wordmark mais a assinatura |
+| `logo/joao-wordmark.png` | Barra de navegação — só a linha `//JOAO CUSTOM` |
+| `logo/joao-lockup.png` | Rodapé — wordmark mais a assinatura |
 | `logo/icon-180.png`, `logo/icon-512.png` | Ícone de app e favicon grande |
-| `logo/og-dinho-custom.jpg` | Imagem que aparece ao compartilhar no WhatsApp |
+| `logo/og-joao-custom.jpg` | Imagem que aparece ao compartilhar no WhatsApp |
 
 Se o cliente tiver o **arquivo vetorial** (SVG, AI ou EPS), vale substituir: fica mais
 nítido em tela retina e pesa menos ainda.

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DINHO CUSTOM — comportamento
+   JOAO CUSTOM — comportamento
    Sem dependências. Tudo degrada quando o JS não roda.
    ========================================================================== */
 
@@ -518,7 +518,7 @@
       var src = facade.getAttribute('data-src');
       var frame = document.createElement('iframe');
       frame.src = src;
-      frame.title = 'Mapa com a localização da Dinho Custom em Formiga, MG';
+      frame.title = 'Mapa com a localização da Joao Custom em Formiga, MG';
       frame.loading = 'lazy';
       frame.referrerPolicy = 'no-referrer-when-downgrade';
       frame.allowFullscreen = true;

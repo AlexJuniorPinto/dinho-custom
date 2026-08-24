@@ -22,7 +22,7 @@ Todos avaliam pelo mesmo critério e não sabem verbalizá-lo: acabamento. Nenhu
 
 ## Product Purpose
 
-Dinho Custom aplica películas e filmes de proteção em Formiga/MG: PPF (proteção de pintura), películas automotivas de controle solar, envelopamento e películas arquitetônicas. O negócio não tem site — hoje 100% da captação passa pelo Instagram (@dinhocustom, 639 seguidores, 38 posts) e converte por WhatsApp.
+Joao Custom aplica películas e filmes de proteção em Formiga/MG: PPF (proteção de pintura), películas automotivas de controle solar, envelopamento e películas arquitetônicas. O negócio não tem site — hoje 100% da captação passa pelo Instagram (@joaocustom, 639 seguidores, 38 posts) e converte por WhatsApp.
 
 Sucesso do site = mais orçamentos qualificados no WhatsApp, com o cliente chegando já entendendo o que está comprando. A maior alavanca de conversão identificada é **tradução técnica**: explicar VLT, PPF e garantia em linguagem que o dono do carro entende antes de ele pedir preço.
 
@@ -62,12 +62,12 @@ razão social, CNPJ, e-mail comercial, telefone fixo, CEP, horário de funcionam
 
 ## Brand Commitments
 
-- **Nome:** Dinho Custom. Handle: @dinhocustom.
-- **Logo confirmada:** `dinho-logo.png` — wordmark "DINHO CUSTOM" em sans-serif pesada itálica, caixa alta, branca, precedida por duas barras inclinadas vermelhas (`//`). Assinatura secundária em vermelho: "Envelopamento e film residencial". Fundo preto.
+- **Nome:** Joao Custom. Handle: @joaocustom.
+- **Logo confirmada:** `joao-logo.png` — wordmark "JOAO CUSTOM" em sans-serif pesada itálica, caixa alta, branca, precedida por duas barras inclinadas vermelhas (`//`). Assinatura secundária em vermelho: "Envelopamento e film residencial". Fundo preto.
 - **As barras `//` são o elemento gráfico proprietário da marca** e o único sinal de identidade que existe além do wordmark.
 - **Paleta observada:** preto e grafite dominantes, branco, vermelho de destaque.
 - **Posicionamento declarado pelo próprio negócio:** "Novo padrão de excelência em películas".
-- **Marca pessoal forte:** o responsável (apelido "Dinho") aparece executando os serviços na maioria dos vídeos. Isso é um ativo, não um detalhe.
+- **Marca pessoal forte:** o responsável (apelido "Joao") aparece executando os serviços na maioria dos vídeos. Isso é um ativo, não um detalhe.
 - **Tom de voz atual:** direto, técnico, orgulhoso. O briefing pede manter a energia e a confiança, mas traduzir o jargão, e evitar excesso de emoji, termo técnico sem explicação e promessa sem número de garantia.
 - **Arquivo vetorial da logo (SVG/AI/EPS) não existe em mãos** — solicitar ao cliente.
 - **Preferência declarada de direção (2026-08-11):** o usuário escolheu explicitamente o padrão da categoria — a estrutura convencional de site de aplicador de PPF premium (hero com mídia cheia + headline + CTA duplo, barra de credibilidade, cards de serviço, slider antes/depois, portfólio, depoimentos, processo, FAQ, mapa, WhatsApp flutuante). Essa convenção é agora um compromisso de marca, não uma escolha de rodada.
@@ -76,8 +76,8 @@ razão social, CNPJ, e-mail comercial, telefone fixo, CEP, horário de funcionam
 ## Evidence on Hand
 
 **Real e verificável:**
-- `dinho-custom-site.json` — briefing completo extraído de 38 posts públicos do Instagram (análise de 2026-08-11).
-- `dinho-logo.png` — logo em PNG sobre fundo preto.
+- `joao-custom-site.json` — briefing completo extraído de 38 posts públicos do Instagram (análise de 2026-08-11).
+- `joao-logo.png` — logo em PNG sobre fundo preto.
 - WhatsApp, endereço e serviços listados acima.
 - Cases reais citados no perfil, por serviço: Ferrari 458 (Full PPF), Honda HR-V (Full PPF), Fiat Toro Ranch 0km (Full PPF), KTM 2026 0km (PPF completo), Honda CBR Fireblade e África Twin (PPF áreas críticas), Audi A4 Prestige (película 5% e 20% + grade black piano), Honda ZR-V 0km (película 5%), Toyota SW4 0km, VW Nivus 2024 (G20), Kawasaki ZX-6R 2021 (faixas), VW Golf TSI, VW Saveiro Cross, Ford Focus, Honda Civic, Fiat Punto, Honda XRE 300.
 - Garantias com número confirmado: **5 anos na linha NX Ceramic**, **3 anos em proteção solar**.
