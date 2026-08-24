@@ -24,6 +24,29 @@ Faltam 35: os 5 heróis das páginas internas, os 6 do antes e depois e os 24 do
    `fetchpriority="high"`: é o item mais pesado do site inteiro. Reexportar como JPG de
    verdade derruba para uns 200 KB.
 
+### A placa da parede foi retocada
+
+A parede da oficina traz a placa física `//DINHO CUSTOM` em letras 3D. Como a marca
+passou a ser Joao Custom, as letras foram substituídas em três arquivos:
+`hero-oficina.jpg`, `portfolio/ferrari-458-full-ppf.jpg` e o `.png` correspondente.
+
+As barras `//` são originais e não foram tocadas. O que mudou:
+
+- as letras antigas foram apagadas por máscara — só os pixels que desviavam da parede
+  limpa, incluindo a sombra projetada, que é mais escura que o fundo — e a parede foi
+  reconstruída por interpolação vertical coluna a coluna, o que preserva o gradiente
+  de luz e a emenda vertical do painel;
+- `JOAO CUSTOM` foi redesenhado em Archivo Italic com a mesma altura, inclinação
+  (1,2°), cor e relevo medidos na placa real.
+
+Fora da área da placa nada mudou nos dois arquivos PNG. No `.jpg` da Ferrari há a
+recompressão normal de um JPEG reaberto, com desvio máximo de 19 níveis e média de
+0,2 — as tabelas de quantização do original foram reaproveitadas justamente para
+não endurecer a compressão do resto da foto.
+
+**Se um dia a oficina for fotografada de novo**, com a placa nova na parede, vale
+trocar essas três imagens pelas fotos reais e dispensar o retoque.
+
 ## Como trocar um slot por uma foto
 
 No HTML, cada slot é um bloco assim:

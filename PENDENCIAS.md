@@ -125,6 +125,15 @@ Se existir o arquivo original em SVG, AI ou EPS — ou se a marca tiver uma font
 oficial —, vale substituir: fica mais nítido em tela retina, pesa menos ainda e
 elimina a aproximação tipográfica.
 
+### 3.3.1 A placa da parede nas fotos
+A parede da oficina, nas fotos, tinha a placa física `//DINHO CUSTOM`. As letras
+foram substituídas por `JOAO CUSTOM` no herói da home e nas duas fotos da Ferrari
+— as barras `//` são as originais. O retoque aguenta bem o tamanho em que as fotos
+aparecem no site, mas é retoque: em zoom de 100% um olho treinado percebe.
+
+O ideal é fotografar a oficina de novo depois que a placa física for trocada.
+Enquanto isso não acontece, as imagens atuais resolvem.
+
 ### 3.4 E-mail comercial
 Não existe hoje. O site inteiro converte por WhatsApp, que é o canal confirmado do
 negócio, então isso não bloqueia nada. Mas um e-mail no domínio próprio ajuda na
