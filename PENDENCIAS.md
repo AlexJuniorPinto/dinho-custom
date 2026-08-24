@@ -35,9 +35,38 @@ Exigência legal para site comercial.
 
 ### 1.4 Política de privacidade — revisão
 O texto em `politica-de-privacidade.html` descreve corretamente como o site funciona
-(ele não guarda dado nenhum: o formulário monta a mensagem e abre o WhatsApp no
-aparelho da pessoa). Falta preencher o responsável e o contato oficial, e revisar
-se o cliente concorda com o trecho sobre imagem de veículos.
+(ele não guarda dado nenhum: o formulário monta a mensagem no próprio navegador).
+Falta preencher o responsável e o contato oficial, definir o canal de destino do
+formulário, e revisar se o cliente concorda com o trecho sobre imagem de veículos.
+
+### 1.5 Canal de destino do formulário
+**Esta é a pendência mais dura da lista: hoje o formulário não envia.**
+
+O site foi construído em cima do WhatsApp — 45 botões em 7 páginas apontavam para
+o número do negócio, e o próprio formulário entregava o lead por lá. Com a retirada
+do telefone, os botões passaram a rolar até o formulário, mas o formulário ficou sem
+para onde mandar.
+
+Preencha `LEAD_MAIL` no topo de `js/main.js` com o e-mail comercial e o envio volta
+a funcionar, montando a mensagem por `mailto:`. Enquanto estiver vazio, quem enviar
+vê o aviso *"Canal de envio ainda não configurado"* — é proposital: melhor travar
+com aviso do que abrir um destino vazio em silêncio.
+
+Se o canal preferido não for e-mail, a troca é num lugar só: a função `mailLink()`,
+logo abaixo da constante.
+
+### 1.6 Endereço
+Saiu do site a pedido, e está marcado como `Endereço a definir` em dois lugares:
+seção "Onde ficamos" da home e página de contato. A cidade (Formiga, MG) continua
+em toda parte — títulos, meta, SEO local e região atendida não foram tocados.
+
+Junto com o endereço saíram o mapa incorporado e os botões "Traçar rota até a loja",
+que não tinham para onde apontar. Quando o endereço entrar, vale repor os dois: o
+mapa era uma fachada leve, que só carrega o Google quando a pessoa clica.
+
+No `schema.org` de cada página o campo `streetAddress` foi removido, mas
+`addressLocality` e `addressRegion` continuam — o endereço segue válido para o
+Google, só menos específico.
 
 ---
 
@@ -90,7 +119,7 @@ Faltam dois, e ambos estão marcados:
 - **garantia da linha NX Carbono** (aparece na tabela de películas)
 
 O briefing apontou que hoje as garantias são citadas de forma inconsistente nos posts.
-Vale fechar o número e usar sempre o mesmo, no site e no Instagram.
+Vale fechar o número e usar sempre o mesmo em toda comunicação.
 
 ---
 
@@ -101,8 +130,9 @@ O briefing classificou como **"muito alto — maior ganho rápido"** e não enco
 perfil ativo. Para um negócio local em cidade de 70 mil habitantes, isso costuma
 render mais que o site inteiro no primeiro mês.
 
-Ao criar, use o mesmo endereço, telefone e nome que estão no site, caractere por
-caractere. Divergência entre as duas fontes atrapalha o ranqueamento local.
+Ao criar, use o mesmo endereço, telefone e nome que estiverem no site, caractere por
+caractere. Divergência entre as duas fontes atrapalha o ranqueamento local — e hoje
+o site não traz nem endereço nem telefone, então isso depende das pendências 1.5 e 1.6.
 
 ### 3.2 Analytics
 Não instalei nada, porque tag de terceiro pesa e precisa da conta do cliente.
@@ -150,9 +180,12 @@ Sobre, Blog, e as duas landing pages de SEO local (`/ppf-formiga-mg` e
 ## Como o site funciona, em duas linhas
 
 **Não tem back-end e não tem banco de dados.** O formulário de orçamento monta uma
-mensagem de texto com o que a pessoa preencheu e abre o WhatsApp já preenchido no
-aparelho dela. Ela confere e envia. O lead chega estruturado e identificando de qual
-página veio — cada botão do site manda um assunto diferente na mensagem.
+mensagem de texto com o que a pessoa preencheu e a entrega ao canal configurado em
+`LEAD_MAIL`, no topo de `js/main.js`. Ela confere e envia. Cada botão do site rola
+até o formulário mais próximo — ou, nas páginas sem formulário, leva para `/contato/`.
+
+**Enquanto `LEAD_MAIL` estiver vazio o envio fica bloqueado**, com aviso na tela.
+É de propósito: melhor travar do que abrir um destino vazio em silêncio.
 
 Isso significa hospedagem estática barata (ou de graça no GitHub Pages), zero
 manutenção de servidor e nada de dado de cliente parado em lugar nenhum.

@@ -18,7 +18,7 @@
     "responsavel_tecnico": {
       "apelido_marca": "Joao",
       "nome_provavel": "Lucas Nunes Teixeira",
-      "perfil_pessoal": "@lukasteixeir",
+      "perfil_pessoal": "confirmar_com_cliente",
       "observacao": "Nome identificado em certificados expostos na loja; confirmar grafia oficial"
     },
     "marca_pessoal": {
@@ -32,16 +32,16 @@
 
   "contato_e_localizacao": {
     "whatsapp": {
-      "numero_formatado": "(37) 99912-7964",
-      "numero_internacional": "5537999127964",
-      "link_bio": "https://api.whatsapp.com/send?phone=5537999127964&text=ol%C3%A1",
+      "numero_formatado": "confirmar_com_cliente",
+      "numero_internacional": "confirmar_com_cliente",
+      "link_bio": "confirmar_com_cliente",
       "canal_principal": true
     },
     "telefone_fixo": "confirmar_com_cliente",
     "email": "confirmar_com_cliente",
     "endereco": {
-      "logradouro": "Rua Marechal Deodoro, 84",
-      "bairro": "Centro",
+      "logradouro": "confirmar_com_cliente",
+      "bairro": "confirmar_com_cliente",
       "cidade": "Formiga",
       "estado": "MG",
       "pais": "Brasil",

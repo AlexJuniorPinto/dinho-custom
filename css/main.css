@@ -67,8 +67,6 @@ a { color: inherit; text-decoration: none; }
   --red-dim:  rgba(250, 75, 60, 0.13);
 
   /* Canal funcional */
-  --wpp: #25d366;
-  --wpp-ink: #06210f;
 
   /* Tipografia */
   --font-display: 'Archivo', 'Arial Narrow', system-ui, sans-serif;
@@ -256,8 +254,8 @@ p { max-width: 68ch; }
 .btn--ghost { border-color: var(--line-strong); color: var(--chalk); background: transparent; }
 .btn--ghost:hover { border-color: var(--chalk); background: rgba(255, 255, 255, 0.04); }
 
-.btn--wpp { background: var(--wpp); color: var(--wpp-ink); }
-.btn--wpp:hover { background: #2ee574; }
+.btn--cta { background: var(--red); color: var(--red-ink); }
+.btn--cta:hover { background: var(--red-hi); }
 
 .btn--block { width: 100%; }
 
@@ -1207,6 +1205,8 @@ body.is-locked { overflow: hidden; }
 
 .place { display: grid; gap: var(--s6); }
 @media (min-width: 900px) { .place { grid-template-columns: 0.9fr 1.1fr; gap: var(--s8); align-items: center; } }
+/* Sem endereço definido nao ha mapa: a coluna unica evita o vao vazio */
+.place--solo { grid-template-columns: 1fr; }
 
 .place__facts { display: grid; gap: var(--s5); }
 .place__fact { display: grid; grid-template-columns: 24px 1fr; gap: var(--s4); align-items: start; }
@@ -1308,7 +1308,7 @@ body.is-locked { overflow: hidden; }
 .check a { color: var(--chalk); text-decoration: underline; text-underline-offset: 3px; }
 
 .form__note { font-size: 0.8125rem; color: var(--steel-dim); display: flex; gap: var(--s3); align-items: flex-start; }
-.form__note .icon { color: var(--wpp); margin-top: 2px; }
+.form__note .icon { color: var(--red); margin-top: 2px; }
 
 /* --------------------------------------------------------------------------
    21. CTA final
@@ -1366,7 +1366,7 @@ body.is-locked { overflow: hidden; }
    23. WhatsApp flutuante
    -------------------------------------------------------------------------- */
 
-.wpp-float {
+.cta-float {
   position: fixed;
   right: clamp(1rem, 3vw, 1.75rem);
   bottom: clamp(1rem, 3vw, 1.75rem);
@@ -1377,8 +1377,8 @@ body.is-locked { overflow: hidden; }
   height: 56px;
   padding: 0 var(--s5);
   border-radius: 28px;
-  background: var(--wpp);
-  color: var(--wpp-ink);
+  background: var(--red);
+  color: var(--red-ink);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.9375rem;
@@ -1387,12 +1387,12 @@ body.is-locked { overflow: hidden; }
   opacity: 0;
   transition: transform 600ms var(--ease-out), opacity 400ms var(--ease-out), background-color var(--t-quick) var(--ease-inout);
 }
-.wpp-float.is-in { transform: translateY(0); opacity: 1; }
-.wpp-float:hover { background: #2ee574; }
-.wpp-float .icon { width: 26px; height: 26px; }
+.cta-float.is-in { transform: translateY(0); opacity: 1; }
+.cta-float:hover { background: var(--red-hi); }
+.cta-float .icon { width: 26px; height: 26px; }
 @media (max-width: 560px) {
-  .wpp-float { width: 56px; padding: 0; justify-content: center; }
-  .wpp-float span { display: none; }
+  .cta-float { width: 56px; padding: 0; justify-content: center; }
+  .cta-float span { display: none; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1524,7 +1524,7 @@ body.is-locked { overflow: hidden; }
   .credbar { -webkit-mask-image: none; mask-image: none; }
   .credbar__group:nth-child(2) { display: none; }
   .hero__cue { display: none !important; }
-  .wpp-float { transform: none !important; opacity: 1 !important; }
+  .cta-float { transform: none !important; opacity: 1 !important; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1532,7 +1532,7 @@ body.is-locked { overflow: hidden; }
    -------------------------------------------------------------------------- */
 
 @media print {
-  .nav, .menu, .wpp-float, .hero__cue, .credbar { display: none !important; }
+  .nav, .menu, .cta-float, .hero__cue, .credbar { display: none !important; }
   body { background: #fff; color: #000; }
   .section { padding-block: 1.5rem; }
 }

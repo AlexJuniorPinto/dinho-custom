@@ -7,14 +7,19 @@
   'use strict';
 
   /* ---------------------------------------------------------------------- *
-   * Config — o número entra em um lugar só
+   * Config — o destino do lead entra em um lugar só
+   *
+   * PENDÊNCIA: enquanto LEAD_MAIL estiver vazio o formulário não tem para
+   * onde enviar. Preencha com o e-mail comercial e o envio passa a funcionar.
    * ---------------------------------------------------------------------- */
 
-  var WPP = '5537999127964';
+  var LEAD_MAIL = '';
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  function waLink(message) {
-    return 'https://wa.me/' + WPP + '?text=' + encodeURIComponent(message);
+  function mailLink(subject, body) {
+    return 'mailto:' + LEAD_MAIL +
+           '?subject=' + encodeURIComponent(subject) +
+           '&body=' + encodeURIComponent(body);
   }
 
   function on(el, ev, fn, opts) {
@@ -26,19 +31,26 @@
   }
 
   /* ---------------------------------------------------------------------- *
-   * Links de WhatsApp com contexto de origem
-   * Cada link declara data-wpp="<assunto>"; a página declara data-page.
-   * O lead chega dizendo de onde veio.
+   * CTAs de orçamento
+   * Cada link declara data-quote="<assunto>". Se a página tem formulário,
+   * o CTA rola até ele; se não tem, manda para a página de contato.
+   * O assunto vai junto e o formulário já abre com o serviço marcado.
    * ---------------------------------------------------------------------- */
 
-  function wireWhatsapp() {
-    var page = document.body.getAttribute('data-page') || 'site';
-    all('[data-wpp]').forEach(function (el) {
-      var subject = el.getAttribute('data-wpp');
-      var msg = 'Olá! Vim pelo site (' + page + ') e queria um orçamento de ' + subject + '.';
-      el.setAttribute('href', waLink(msg));
-      el.setAttribute('rel', 'noopener');
-      el.setAttribute('target', '_blank');
+  function quoteTarget() {
+    var form = document.querySelector('[data-quote-form]');
+    if (form) {
+      if (!form.id) form.id = 'orcamento';
+      return '#' + form.id;
+    }
+    var nav = document.querySelector('a[href$="contato/"]');
+    return nav ? nav.getAttribute('href') : 'contato/';
+  }
+
+  function wireQuoteLinks() {
+    var target = quoteTarget();
+    all('[data-quote]').forEach(function (el) {
+      el.setAttribute('href', target);
     });
   }
 
@@ -528,11 +540,11 @@
   }
 
   /* ---------------------------------------------------------------------- *
-   * WhatsApp flutuante — entra depois que o herói sai
+   * CTA flutuante — entra depois que o herói sai
    * ---------------------------------------------------------------------- */
 
   function wireFloat() {
-    var float = document.querySelector('.wpp-float');
+    var float = document.querySelector('.cta-float');
     if (!float) return;
 
     if (REDUCED.matches) { float.classList.add('is-in'); return; }
@@ -546,8 +558,9 @@
 
   /* ---------------------------------------------------------------------- *
    * Formulário de orçamento
-   * Sem back-end: monta a mensagem e abre o WhatsApp já preenchido.
-   * É o canal confirmado do negócio e o lead chega estruturado.
+   * Sem back-end: monta a mensagem no navegador e entrega ao canal
+   * configurado em LEAD_MAIL. Sem esse dado o envio fica bloqueado, com
+   * aviso na tela — melhor do que abrir um destino vazio.
    * ---------------------------------------------------------------------- */
 
   function wireForm() {
@@ -555,6 +568,19 @@
     if (!form) return;
 
     function fieldOf(input) { return input.closest('.field') || input.closest('.check'); }
+
+    function say(message, isError) {
+      var slot = form.querySelector('[data-form-status]');
+      if (!slot) {
+        slot = document.createElement('p');
+        slot.className = 'form__note';
+        slot.setAttribute('data-form-status', '');
+        slot.setAttribute('role', 'status');
+        form.appendChild(slot);
+      }
+      slot.textContent = message;
+      slot.style.color = isError ? 'var(--red)' : '';
+    }
 
     function setError(input, message) {
       var field = fieldOf(input);
@@ -593,7 +619,7 @@
         problems.push(form.querySelector('[name="nome"]'));
       }
       if (zap.replace(/\D/g, '').length < 10) {
-        setError(form.querySelector('[name="whatsapp"]'), 'Faltam dígitos. Use DDD + número, como 37 99912-7964.');
+        setError(form.querySelector('[name="whatsapp"]'), 'Faltam dígitos. Use DDD + número, como 37 99999-0000.');
         problems.push(form.querySelector('[name="whatsapp"]'));
       }
       if (!servico) {
@@ -601,7 +627,7 @@
         problems.push(form.querySelector('[name="servico"]'));
       }
       if (consent && !consent.checked) {
-        setError(consent, 'Precisamos do seu aceite para responder pelo WhatsApp.');
+        setError(consent, 'Precisamos do seu aceite para responder sobre o orçamento.');
         problems.push(consent);
       }
 
@@ -625,19 +651,28 @@
       if (obs) { lines.push(''); lines.push('Observações: ' + obs); }
 
       var btn = form.querySelector('[type="submit"]');
+
+      // Sem destino configurado não há envio: avisa antes de mexer no botão,
+      // em vez de abrir um mailto vazio que o navegador engole em silêncio.
+      if (!LEAD_MAIL) {
+        say('Canal de envio ainda não configurado. Preencha LEAD_MAIL em js/main.js.', true);
+        return;
+      }
+
       if (btn) {
         btn.disabled = true;
         var label = btn.querySelector('span');
-        if (label) label.textContent = 'Abrindo o WhatsApp…';
+        if (label) label.textContent = 'Enviando…';
       }
 
-      window.open(waLink(lines.join('\n')), '_blank', 'noopener');
+      window.location.href = mailLink('Pedido de orçamento pelo site', lines.join(String.fromCharCode(10)));
+      say('Pedido montado. Confira e envie pelo seu programa de e-mail.', false);
 
       setTimeout(function () {
         if (btn) {
           btn.disabled = false;
           var l = btn.querySelector('span');
-          if (l) l.textContent = 'Enviar pelo WhatsApp';
+          if (l) l.textContent = 'Enviar pedido';
         }
       }, 2500);
     });
@@ -658,7 +693,7 @@
    * ---------------------------------------------------------------------- */
 
   function init() {
-    wireWhatsapp();
+    wireQuoteLinks();
     wireNav();
     bootIntro(prepareHero());
     wireReveals();

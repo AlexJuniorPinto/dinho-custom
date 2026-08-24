@@ -34,12 +34,12 @@ Reforçado por: instalador certificado (certificados expostos na loja), marcas h
 
 ## Operating Context
 
-- **Canal de contato único e confirmado:** WhatsApp (37) 99912-7964 / `5537999127964`. É o canal principal declarado na bio. Não há e-mail comercial nem formulário hoje.
-- **Endereço confirmado:** Rua Marechal Deodoro, 84 — Centro, Formiga/MG. Espaço próprio inaugurado em dezembro de 2023.
+- **Canal de contato:** a definir. O WhatsApp e o Instagram foram retirados do site a pedido do cliente, e o formulário de orçamento passou a ser o único caminho de conversão. Falta um destino para os leads — ver `PENDENCIAS.md`.
+- **Endereço:** a definir. A rua saiu do site e está marcada como pendência; a cidade (Formiga/MG) continua. Espaço próprio inaugurado em dezembro de 2023.
 - **Estrutura física:** box com iluminação hexagonal em LED, piso modular, ambiente controlado. É visualmente forte e já é o cenário da maior parte do conteúdo do perfil.
 - **Serviço exige diagnóstico presencial.** Não há preço de tabela: depende de porte do veículo, estado da pintura e escopo. E-commerce/checkout foi descartado no briefing.
 - **Região de atendimento:** Formiga, Divinópolis, Arcos, Pains, Córrego Fundo, Lagoa da Prata, Pimenta, Candeias; eventualmente Belo Horizonte.
-- **Tráfego será majoritariamente mobile**, vindo do link da bio do Instagram e de busca local.
+- **Tráfego será majoritariamente mobile**, vindo de busca local. O link da bio do Instagram era a outra fonte prevista, mas o perfil saiu do site.
 
 ## Capabilities and Constraints
 
