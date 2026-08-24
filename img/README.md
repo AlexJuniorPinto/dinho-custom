@@ -164,7 +164,13 @@ de 2022 e não sustenta a página. Vale fotografar os próximos trabalhos.*
 ## Logo
 
 Os arquivos em `logo/` foram gerados a partir do `joao-logo.png` original: fundo
-removido, recortados e otimizados. O wordmark saiu de **960 KB para 7,6 KB**.
+removido, recortados e otimizados. O wordmark saiu de **960 KB para 5,6 KB**.
+
+A palavra **JOAO CUSTOM** foi redesenhada em **Archivo Italic** (peso 750, largura 92)
+— a mesma família que o site usa como `--font-display`. Os parâmetros foram calibrados
+contra a arte original: na altura de caixa alta de 48 px, a largura bate exatamente com
+o wordmark antigo. As barras `//` e a assinatura vermelha são pixels do arquivo original,
+reaproveitados sem retoque.
 
 | Arquivo | Uso |
 |---|---|

@@ -114,10 +114,16 @@ há um trecho marcado esperando exatamente por isso.
 
 ### 3.3 Logo em vetor
 A logo foi extraída do PNG que você enviou: fundo removido, recortada e otimizada
-de **960 KB para 7,6 KB**. Está ótima para uso em tela.
+de **960 KB para 5,6 KB**. Está ótima para uso em tela.
 
-Se existir o arquivo original em SVG, AI ou EPS, vale substituir — fica mais nítido
-em tela retina e pesa menos ainda.
+Atenção: como o PNG original trazia a palavra *Dinho Custom*, o wordmark foi
+**redesenhado em Archivo Italic** para dizer *Joao Custom*. A tipografia é muito
+próxima da original, mas não é a mesma fonte — as barras `//` e a assinatura
+vermelha, sim, continuam sendo os pixels originais.
+
+Se existir o arquivo original em SVG, AI ou EPS — ou se a marca tiver uma fonte
+oficial —, vale substituir: fica mais nítido em tela retina, pesa menos ainda e
+elimina a aproximação tipográfica.
 
 ### 3.4 E-mail comercial
 Não existe hoje. O site inteiro converte por WhatsApp, que é o canal confirmado do
